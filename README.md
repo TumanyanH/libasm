@@ -14,5 +14,6 @@ cmp REG_NAME, 5
 
 command `jl` means "JUMP if LOWER", works based on results of `cmp`. 
 
+## The Registers
 
-![alt text](./regs.png "Logo Title Text 1")
+![alt text](./regs.png "Registers list")
