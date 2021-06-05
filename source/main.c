@@ -1,11 +1,13 @@
 #include <stdio.h>
 
-char ft_ft();
+extern int ft_strlen(char *string);
 
 int main()
 {
-    char c;
-    c = ft_ft();
-    printf("%c", c);
+    printf("hey!\n");
+    char dest[10];
+    int a = ft_strlen("barevaaa");
+    char *string = ft_strcpy(dest, "barevaaa");
+    printf("%s\n", string);
     return (0);
 }

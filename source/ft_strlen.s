@@ -2,9 +2,13 @@ global _ft_strlen
 
 section .text
 _ft_strlen : 
-    mov eax, 0
+        xor     rax, rax
 
-
-# inc ANY_REG increment register value
-
+while: 
+        cmp     byte[rdi + rax], 0
+        je      exit
+        inc     rax
+        jmp     while
+        inc     eax
+exit:   ret
     

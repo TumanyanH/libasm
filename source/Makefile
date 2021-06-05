@@ -1,4 +1,5 @@
 all :
-	/Users/htumanya/Downloads/nasm-2.15.05/nasm -f macho64 ./t.s
-	ld -lSystem -o op t.o
-	./op
+	/Users/htumanya/Downloads/nasm-2.15.05/nasm -f macho64 ./ft_strcpy.s
+	gcc main.c ft_strlen.o ft_strcpy.o
+	./a.out
+	
