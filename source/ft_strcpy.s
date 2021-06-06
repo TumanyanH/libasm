@@ -4,15 +4,14 @@ section .text
 
 ; rdi, rsi
 _ft_strcpy : 
-    xor     rax, rax
+    xor     rbx, rbx
 while  : 
-    mov al, BYTE [rdi]
-    cmp al, 0
+    mov dl, BYTE [rsi + rbx]
+    mov BYTE [rdi + rbx], dl
+    cmp dl, 0
     je exit
-    mov BYTE [rsi], al
-    inc rdi
-    inc rsi
+    inc rbx
     jmp while
 exit : 
-    mov [rax], rsi
+    mov rax, rdi
     ret
