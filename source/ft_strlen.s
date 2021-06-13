@@ -8,5 +8,4 @@ while:
         je      exit
         inc     rax
         jmp     while
-        ; inc     eax
 exit:   ret

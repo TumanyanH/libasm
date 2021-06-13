@@ -57,67 +57,67 @@ int		strcmp_test(char *s1, char *s2)
 	return (1);
 }
 
-// int		write_test(char *str)
-// {
-// 	int		ft_write_pipe[2];
-// 	char	buf[BUFFER_SIZE];
-// 	int		ret;
+int		write_test(char *str)
+{
+	int		ft_write_pipe[2];
+	char	buf[BUFFER_SIZE];
+	int		ret;
 
-// 	bzero(buf, BUFFER_SIZE);
-// 	if (pipe(ft_write_pipe) < 0)
-// 		exit(EXIT_FAILURE);
-// 	fcntl(ft_write_pipe[0], F_SETFL, O_NONBLOCK);
-// 	write(ft_write_pipe[1], str, strlen(str));
-// 	ret = read(ft_write_pipe[0], buf, BUFFER_SIZE);
-// 	buf[ret] = '\0';
+	bzero(buf, BUFFER_SIZE);
+	if (pipe(ft_write_pipe) < 0)
+		exit(EXIT_FAILURE);
+	fcntl(ft_write_pipe[0], F_SETFL, O_NONBLOCK);
+	write(ft_write_pipe[1], str, strlen(str));
+	ret = read(ft_write_pipe[0], buf, BUFFER_SIZE);
+	buf[ret] = '\0';
 
-// 	if (!strcmp(buf, str))
-// 		printf("" GREEN "[OK] " RESET "");
-// 	else
-// 		printf("" RED "[KO] " RESET "");
-// 	close(ft_write_pipe[1]);
-// 	close(ft_write_pipe[0]);
-// 	return (1);
-// }
+	if (!strcmp(buf, str))
+		printf("" GREEN "[OK] " RESET "");
+	else
+		printf("" RED "[KO] " RESET "");
+	close(ft_write_pipe[1]);
+	close(ft_write_pipe[0]);
+	return (1);
+}
 
-// int		read_test(char *str)
-// {
-// 	int		ft_read_pipe[2];
-// 	char	buf[BUFFER_SIZE];
-// 	int		ret;
+int		read_test(char *str)
+{
+	int		ft_read_pipe[2];
+	char	buf[BUFFER_SIZE];
+	int		ret;
 
-// 	bzero(buf, BUFFER_SIZE);
-// 	if (pipe(ft_read_pipe) < 0)
-// 		exit(EXIT_FAILURE);
-// 	fcntl(ft_read_pipe[0], F_SETFL, O_NONBLOCK);
-// 	write(ft_read_pipe[1], str, strlen(str));
-// 	ret = ft_read(ft_read_pipe[0], buf, BUFFER_SIZE);
-// 	buf[ret] = '\0';
+	bzero(buf, BUFFER_SIZE);
+	if (pipe(ft_read_pipe) < 0)
+		exit(EXIT_FAILURE);
+	fcntl(ft_read_pipe[0], F_SETFL, O_NONBLOCK);
+	write(ft_read_pipe[1], str, strlen(str));
+	ret = ft_read(ft_read_pipe[0], buf, BUFFER_SIZE);
+	buf[ret] = '\0';
 
-// 	if (!strcmp(buf, str))
-// 		printf("" GREEN "[OK] " RESET "");
-// 	else
-// 		printf("" RED "[KO] " RESET "");
-// 	close(ft_read_pipe[1]);
-// 	close(ft_read_pipe[0]);
-// 	return (1);
-// }
+	if (!strcmp(buf, str))
+		printf("" GREEN "[OK] " RESET "");
+	else
+		printf("" RED "[KO] " RESET "");
+	close(ft_read_pipe[1]);
+	close(ft_read_pipe[0]);
+	return (1);
+}
 
-// int		strdup_test(char *str)
-// {
-// 	char	*str1;
-// 	char	*str2;
+int		strdup_test(char *str)
+{
+	char	*str1;
+	char	*str2;
 
-// 	str1 = ft_strdup(str);
-// 	str2 = strdup(str);
-// 	if (!strcmp(str1, str2))
-// 		printf("" GREEN "[OK] " RESET "");
-// 	else
-// 		printf("" RED "[KO] " RESET "");
-// 	free(str1);
-// 	free(str2);
-// 	return (1);
-// }
+	str1 = ft_strdup(str);
+	str2 = strdup(str);
+	if (!strcmp(str1, str2))
+		printf("" GREEN "[OK] " RESET "");
+	else
+		printf("" RED "[KO] " RESET "");
+	free(str1);
+	free(str2);
+	return (1);
+}
 
 int main()
 {
@@ -167,33 +167,33 @@ int main()
 	// /*
 	// ** FT_WRITE
 	// */
-	// printf("%-12s :  ", "ft_write.s");
-	// write_test("");
-	// write_test("test");
-	// write_test("test allo");
-	// write_test("test allo \0 what");
-	// printf("\n\n");
+	printf("%-12s :  ", "ft_write.s");
+	write_test("");
+	write_test("test");
+	write_test("test allo");
+	write_test("test allo \0 what");
+	printf("\n\n");
 
 	// /*
 	// ** FT_READ
 	// */
 
-	// printf("%-12s :  ", "ft_read.s");
-	// read_test("allo");
-	// read_test("allo mon gars");
-	// read_test("allo \0 mon bars");
-	// read_test("");
-	// read_test("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus metus, finibus quis sagittis quis, volutpat a justo. Nunc et pellentesque quam. Fusce aliquam aliquam libero, sed pulvinar nullam.");
-	// printf("\n\n");
+	printf("%-12s :  ", "ft_read.s");
+	read_test("allo");
+	read_test("allo mon gars");
+	read_test("allo \0 mon bars");
+	read_test("");
+	read_test("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus metus, finibus quis sagittis quis, volutpat a justo. Nunc et pellentesque quam. Fusce aliquam aliquam libero, sed pulvinar nullam.");
+	printf("\n\n");
 	
 	// /*
 	// ** FT_STRDUP
 	// */
-	// printf("%-12s :  ", "ft_strdup.s");
-	// strdup_test("allo");
-	// strdup_test("allo wtf");
-	// strdup_test("");
-	// strdup_test("allo \0 mon bars");
-	// strdup_test("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus metus, finibus quis sagittis quis, volutpat a justo. Nunc et pellentesque quam. Fusce aliquam aliquam libero, sed pulvinar nullam.");
-	// printf("\n");
+	printf("%-12s :  ", "ft_strdup.s");
+	strdup_test("allo");
+	strdup_test("allo wtf");
+	strdup_test("");
+	strdup_test("allo \0 mon bars");
+	strdup_test("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus metus, finibus quis sagittis quis, volutpat a justo. Nunc et pellentesque quam. Fusce aliquam aliquam libero, sed pulvinar nullam.");
+	printf("\n");
 }
